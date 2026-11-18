@@ -1,12 +1,12 @@
-.card-thumbnail {
+﻿.card-thumbnail {
     padding: 0;
-    background: #20291f;
+    background: var(--bg-secondary);
     flex: 0 0 74px;
     width: 74px;
     height: 104px;
     border-radius: 5px;
     overflow: hidden;
-    border: 1px solid #394532;
+    border: 1px solid var(--line);
 }
 
 .card-thumbnail img {

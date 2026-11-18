@@ -48,6 +48,7 @@
     }
 
     async function open(id) {
+        window.ArcaneUI?.leave();
         const current = ++generation;
 
         ++filterRequest;
@@ -331,6 +332,8 @@
                     })
             );
             renderCards();
+
+            window.ArcaneUI?.mountDeck(root, deck, showCardDetails);
 
             if (Object.entries(filters).some(([key, value]) => !["colorMode", "colorField"].includes(key) && value)) {
                 applyFilters(filters);

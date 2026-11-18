@@ -1,28 +1,65 @@
-@media (min-width: 1500px) {
-    .deck-art {
-        height: 190px;
+﻿@media (min-width: 1700px) {
+    .content {
+        padding: 36px 40px;
+    }
+    .deck-command-center {
+        grid-template-columns: minmax(240px, 0.9fr) minmax(440px, 2fr) minmax(240px, 0.8fr);
     }
 }
-
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
+    :root {
+        --sidebar-width: 210px;
+    }
+    .topbar {
+        gap: 14px;
+        padding-inline: 16px;
+    }
+    .header-tab {
+        padding: 10px;
+    }
+    .header-tab span {
+        font-size: 10px;
+    }
+    .content {
+        padding: 25px;
+    }
+    .topbar-brand {
+        font-size: 23px;
+    }
+    #global-search kbd {
+        display: none;
+    }
     .items {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .sidebar {
-        width: 215px;
-        padding: 30px 15px;
+    .overview-decks {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-    main {
-        margin-left: 215px;
+    .overview-decks .deck-info {
+        padding: 13px;
     }
-    #workspace:not([hidden]) ~ .legal-notice {
-        margin-left: 215px;
+    .overview-decks .deck-title-row h3 {
+        font-size: 13px;
     }
-    .content {
-        padding: 32px 25px;
+    .overview-decks .deck-title-row {
+        flex-wrap: wrap;
     }
-    .topbar {
-        padding: 0 25px;
+}
+@media (max-width: 1000px) {
+    .header-navigation .header-tab span {
+        display: none;
+    }
+    .overview-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .overview-decks {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .hero-sigil {
+        width: 170px;
+    }
+    .overview-panels {
+        grid-template-columns: minmax(0, 1fr);
     }
     .toolbar {
         align-items: stretch;
@@ -31,79 +68,165 @@
     .search {
         width: 100%;
     }
-    .stats {
-        gap: 10px;
-    }
     .stats article {
-        padding: 16px;
-        gap: 10px;
+        gap: 8px;
+        padding: 14px;
+    }
+    .stats article > span {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        font-size: 18px;
     }
 }
-
 @media (max-width: 720px) {
-    .sidebar {
-        position: static;
-        width: auto;
-        padding: 18px;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
+    :root {
+        --sidebar-width: 0px;
+        --header-height: 64px;
     }
-    .brand {
-        font-size: 23px;
-    }
-    .nav-caption,
-    .sidebar-note,
-    .profile,
     .topbar {
+        gap: 12px;
+        padding-inline: 15px;
+    }
+    .topbar-brand,
+    .sidebar-collapsed .topbar-brand {
+        min-width: 0;
+        font-size: 21px;
+        gap: 7px;
+    }
+    .topbar-brand img {
+        width: 23px;
+        height: 32px;
+    }
+    .header-navigation {
         display: none;
     }
-    nav {
-        display: flex;
-        margin-top: 18px;
+    .header-actions {
         gap: 4px;
     }
-    .nav-item {
-        padding: 10px;
-        gap: 7px;
-        flex: 1;
-        justify-content: center;
+    .header-actions .icon-button {
+        font-size: 18px;
+        width: 25px;
     }
-    .nav-item span {
-        font-size: 11px;
+    #global-search {
+        width: auto;
+        min-width: 0;
+        flex: 1;
+    }
+    #global-search input {
+        font-size: 10px;
+        padding: 9px;
+    }
+    #global-search .icon-button {
+        font-size: 20px;
+    }
+    .sidebar {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        padding: 10px 12px;
+        margin-top: var(--header-height);
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        overflow: visible;
+    }
+    .sidebar .nav-caption,
+    .sidebar-library,
+    .sidebar-note,
+    .profile {
+        display: none;
+    }
+    .sidebar nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px;
+    }
+    .sidebar .nav-item {
+        flex: 1;
+        min-height: 36px;
+        justify-content: center;
+        padding: 8px;
+        font-size: 16px;
+        gap: 5px;
+    }
+    .sidebar .nav-item span {
+        font-size: 9px;
+    }
+    .sidebar .nav-item[data-page="analytics"],
+    .sidebar .nav-item[data-page="tracking"] {
+        flex-basis: 25%;
+    }
+    body.sidebar-collapsed {
+        --sidebar-width: 0px;
+    }
+    .sidebar-collapsed .sidebar .nav-item {
+        min-height: 34px;
+        padding: 8px;
     }
     main {
         margin-left: 0;
+        padding-top: 0;
     }
     #workspace:not([hidden]) ~ .legal-notice {
         margin-left: 0;
     }
     .content {
-        padding: 28px 18px;
+        padding: 24px 16px;
     }
     .page-heading {
         align-items: flex-start;
     }
     .page-heading .primary {
-        padding: 11px;
-        font-size: 12px;
-        margin-top: 29px;
+        padding: 10px 12px;
+        font-size: 11px;
+        margin-top: 14px;
     }
     h1 {
-        font-size: 33px;
+        font-size: 25px;
+    }
+    .page-heading p {
+        font-size: 11px;
     }
     .eyebrow {
         font-size: 8px;
-        letter-spacing: 1.3px;
     }
-    .page-heading p {
-        font-size: 12px;
+    .overview-hero {
+        padding: 25px;
+    }
+    .overview-hero h2 {
+        font-size: 25px;
+    }
+    .hero-sigil {
+        width: 105px;
+    }
+    .hero-sigil img {
+        width: 65px;
+        height: 85px;
+    }
+    .hero-sigil span {
+        display: none;
+    }
+    .overview-metrics {
+        gap: 10px;
+    }
+    .overview-metrics article {
+        padding: 17px;
+    }
+    .overview-metrics article > span {
+        font-size: 18px;
+        right: 12px;
+    }
+    .overview-metrics small {
+        font-size: 10px;
+    }
+    .overview-metrics strong {
+        font-size: 25px;
+    }
+    .items {
+        gap: 12px;
     }
     .stats {
         gap: 8px;
-        margin: 25px 0;
-    }
-    .stats article {
-        padding: 13px 10px;
     }
     .stats article > span {
         display: none;
@@ -114,30 +237,27 @@
     .stats strong {
         font-size: 23px;
     }
-    .items {
+    .card-row {
+        flex-wrap: wrap;
+        padding: 14px;
         gap: 12px;
     }
-    .deck-art {
-        height: 120px;
+    .card-row .card-description {
+        flex: 1;
+        min-width: 130px;
     }
-    .deck-info {
-        padding: 14px;
+    footer:not(.legal-notice) {
+        flex-wrap: wrap;
+        line-height: 1.8;
     }
-    .deck-info h3 {
-        font-size: 16px;
-    }
-    .filters button {
-        padding: 8px 9px;
-        font-size: 11px;
-    }
-    footer span {
+    footer:not(.legal-notice) > span {
         display: none;
     }
     .auth-layout {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
     .auth-story {
-        padding: 26px;
+        padding: 25px;
     }
     .auth-story > div,
     .auth-story > small {
@@ -146,12 +266,6 @@
     .auth-panel {
         padding: 45px 25px;
     }
-    .card-row {
-        flex-wrap: wrap;
-    }
-    .quantity {
-        gap: 8px;
-    }
     .quantity input {
         width: 70px;
     }
@@ -159,27 +273,42 @@
         font-size: 15px;
     }
 }
-
+@media (max-width: 460px) {
+    .topbar-brand {
+        font-size: 17px;
+    }
+    .topbar-brand img {
+        width: 20px;
+    }
+    .topbar {
+        gap: 7px;
+        padding-inline: 10px;
+    }
+    #global-search input {
+        width: 100%;
+    }
+    #global-search {
+        flex: 1;
+    }
+    #recent-activity {
+        display: none;
+    }
+    .hero-sigil {
+        display: none;
+    }
+    .overview-decks {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .overview-hero h2 {
+        font-size: 24px;
+    }
+    .collection-color-row {
+        grid-template-columns: 82px minmax(0, 1fr) 38px;
+        gap: 8px;
+    }
+}
 @media (prefers-reduced-motion: reduce) {
     * {
         transition: none !important;
-    }
-}
-
-@media (max-width: 720px) {
-    .profile {
-        display: flex;
-        margin-top: 14px;
-        padding-top: 12px;
-    }
-    .profile .avatar {
-        padding: 8px;
-    }
-    .profile small {
-        display: none;
-    }
-    .profile strong {
-        max-width: 220px;
-        font-size: 12px;
     }
 }

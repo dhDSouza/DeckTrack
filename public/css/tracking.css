@@ -1,4 +1,4 @@
-.location-summary {
+﻿.location-summary {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -10,7 +10,7 @@
 
 .location-summary .pool-label {
     color: var(--green);
-    background: #293820;
+    background: var(--panel-raised);
     border-radius: 5px;
     padding: 5px 8px;
 }
@@ -131,4 +131,19 @@
     .deck-page-actions button {
         font-size: 11px;
     }
+}
+
+.location-summary .pool-label {
+    color: var(--success);
+    background: #4ade8010;
+    border: 1px solid #4ade8025;
+}
+.location-summary > span:not(.pool-label) {
+    color: #bca1df;
+}
+.location-summary .error {
+    color: #e6b376;
+}
+.location-card strong {
+    color: var(--success);
 }

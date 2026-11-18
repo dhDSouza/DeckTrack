@@ -43,6 +43,7 @@ Antes de abrir um PR, execute:
 
 ```sh
 npm run format:check
+npm run lint
 npm test
 ```
 

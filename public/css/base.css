@@ -1,78 +1,205 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+
 :root {
     color-scheme: dark;
-    --bg: #101411;
-    --panel: #181d19;
-    --line: #2b332c;
-    --muted: #929d93;
-    --green: #c5ec8c;
-    --text: #edf1e9;
+    --bg: #0b0d14;
+    --bg-secondary: #111520;
+    --panel: #191d2b;
+    --panel-raised: #202536;
+    --line: #2b3042;
+    --muted: #9ca3b5;
+    --primary: #8b5cf6;
+    --primary-light: #c084fc;
+    --green: var(--primary-light);
+    --gold: #c9a86a;
+    --text: #f0ede6;
+    --success: #4ade80;
+    --danger: #f58088;
+    --sidebar-width: 236px;
+    --header-height: 76px;
+    --radius: 7px;
+    --font-heading: "Cinzel", Georgia, serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --shadow-panel: 0 12px 32px #0003, inset 0 1px 0 #ffffff05;
 }
 
 * {
     box-sizing: border-box;
 }
-
 body {
     margin: 0;
-    background: var(--bg);
+    background: radial-gradient(ellipse at 80% 0%, #29203d44, transparent 50%), var(--bg);
     color: var(--text);
-    font-family: "DM Sans", sans-serif;
-    font-size: 14px;
+    font-family: var(--font-body);
+    font-size: 13px;
 }
-
 button,
 input,
-select {
+select,
+textarea {
     font: inherit;
 }
-
 button,
 a,
 input,
-select {
+select,
+summary,
+textarea {
     outline-offset: 4px;
 }
-
 button {
     cursor: pointer;
-}
-
-button {
     color: inherit;
+    border: 0;
 }
-
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+button,
+a,
+input,
+select,
+progress {
+    transition:
+        background-color 0.18s,
+        border-color 0.18s,
+        box-shadow 0.18s,
+        color 0.18s;
+}
 a {
     color: inherit;
     text-decoration: none;
 }
-
 [hidden] {
     display: none !important;
 }
-
 h1,
 h2,
 h3,
 .brand {
-    font-family: "Space Grotesk", sans-serif;
+    font-family: var(--font-heading);
 }
-
-button {
-    border: 0;
+h1,
+h2,
+h3 {
+    font-weight: 600;
 }
-
 input,
-select {
-    background: #111612;
-    border: 1px solid #354036;
-    border-radius: 8px;
-    padding: 12px;
+select,
+textarea {
+    background: #0d111d;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 11px 12px;
     color: var(--text);
     width: 100%;
 }
-
 input:focus,
-select:focus {
-    outline: 2px solid var(--green);
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--primary-light);
+}
+:focus-visible {
+    outline: 2px solid var(--primary-light);
+}
+::selection {
+    background: #8b5cf655;
+    color: white;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+progress {
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 6px;
+    border: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    background: var(--line);
+    accent-color: var(--primary);
+}
+progress::-webkit-progress-bar {
+    background: var(--line);
+}
+progress::-webkit-progress-value {
+    background: var(--progress-color, linear-gradient(90deg, var(--primary), var(--primary-light)));
+    border-radius: 5px;
+}
+progress::-moz-progress-bar {
+    background: var(--progress-color, var(--primary));
+    border-radius: 5px;
+}
+.mana-symbols {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+.mana-orb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-grid;
+    place-items: center;
+    font: 700 10px var(--font-body);
+    color: #12151e;
+    border: 1px solid #ffffff80;
+    box-shadow:
+        inset 0 1px 3px #ffffff65,
+        0 1px 5px #0008;
+    background: #acb3c1;
+}
+.mana-W {
+    background: #e4d7b4;
+}
+.mana-U {
+    background: #66b8e8;
+}
+.mana-B {
+    background: #b293d4;
+}
+.mana-R {
+    background: #e38465;
+}
+.mana-G {
+    background: #77ba91;
+}
+.status-owned {
+    color: var(--success);
+}
+.status-missing {
+    color: #e6b376;
+}
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
 }

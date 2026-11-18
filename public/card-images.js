@@ -197,5 +197,5 @@ window.CardImageUI = (() => {
         );
     }
 
-    return { url, thumbnail, art, hero };
+    return { url, thumbnail, art, hero, register };
 })();
