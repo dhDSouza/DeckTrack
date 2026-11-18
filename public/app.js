@@ -1,13 +1,12 @@
-const $ = (s) => document.querySelector(s);
+﻿const $ = (s) => document.querySelector(s);
 const formats = { commander: "Commander", pauper: "Pauper", standard: "Standard", free: "Livre" };
-const symbols = { commander: "✧", pauper: "◈", standard: "✦", free: "❖" };
 const state = {
     token: sessionStorage.getItem("decktrack-token"),
     user: null,
     decks: [],
     collection: [],
     cards: [],
-    page: "decks",
+    page: "dashboard",
     format: "all",
     query: "",
     register: false,
@@ -36,6 +35,7 @@ function notify(message) {
 }
 
 function logout() {
+    ArcaneUI.reset();
     DeckPage.leave();
     TrackingUI.leave();
     state.token = null;
@@ -75,12 +75,16 @@ async function load() {
     const [decks, collection, tracking] = await Promise.all([api("/decks"), api("/collection"), api("/tracking")]);
 
     Object.assign(state, { decks, collection, tracking });
+    ArcaneUI.refresh();
+    ArcaneUI.refreshActivity();
     $("#stat-decks").textContent = decks.length;
     $("#stat-owned").textContent = collection.reduce((sum, item) => sum + item.quantity, 0).toLocaleString("pt-BR");
     $("#stat-unique").textContent = collection.length;
 
-    if (state.page === "tracking") {
-        TrackingUI.show();
+    if (["dashboard", "analytics"].includes(state.page)) {
+        ArcaneUI.show(state.page);
+    } else if (["tracking", "pool"].includes(state.page)) {
+        TrackingUI.show(state.page === "pool" ? "pool" : undefined);
     } else if (state.page !== "decks") {
         await loadCatalog();
     } else {
@@ -131,7 +135,8 @@ async function enter() {
     $("#avatar").textContent = state.user.username.slice(0, 2).toUpperCase();
     $("#auth").hidden = true;
     $("#workspace").hidden = false;
-    $("#items").innerHTML = '<div class="empty"><p>Carregando sua biblioteca…</p></div>';
+    $("#items").innerHTML =
+        '<div class="skeleton-grid" role="status" aria-label="Carregando sua biblioteca"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>';
 
     try {
         await load();
@@ -199,32 +204,38 @@ $("#auth-form").onsubmit = async (event) => {
 };
 
 $("#logout").onclick = logout;
-document.querySelectorAll("[data-page]").forEach(
-    (button) =>
-        (button.onclick = () => {
-            DeckPage.leave();
-            TrackingUI.leave();
-            $("#modal").close();
-            history.replaceState({}, "", location.pathname + location.search);
-            clearTimeout(searchTimer);
-            ++catalogRequest;
-            state.page = button.dataset.page;
-            state.query = "";
-            state.catalogPage = 1;
-            $("#search").value = "";
+function navigate(page, query = "") {
+    DeckPage.leave();
+    TrackingUI.leave();
+    ArcaneUI.leave();
+    $("#modal").close();
+    history.replaceState({}, "", location.pathname + location.search);
+    clearTimeout(searchTimer);
+    ++catalogRequest;
+    state.page = page;
+    state.query = query;
+    state.catalogPage = 1;
+    $("#search").value = query;
+    document.querySelectorAll("[data-page]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.page === page);
+    });
 
-            if (state.page === "tracking") {
-                document
-                    .querySelectorAll("[data-page]")
-                    .forEach((item) => item.classList.toggle("active", item === button));
-                TrackingUI.show();
-            } else if (state.page !== "decks") {
-                loadCatalog();
-            } else {
-                render();
-            }
-        })
-);
+    if (["dashboard", "analytics"].includes(page)) {
+        ArcaneUI.show(page);
+    } else if (["tracking", "pool"].includes(page)) {
+        TrackingUI.show(page === "pool" ? "pool" : "all");
+    } else if (page !== "decks") {
+        loadCatalog();
+    } else {
+        render();
+    }
+}
+
+document.querySelectorAll("[data-page]").forEach((button) => {
+    button.title ||= button.textContent.trim();
+    button.onclick = () => navigate(button.dataset.page);
+});
+
 document.querySelectorAll("[data-format]").forEach(
     (button) =>
         (button.onclick = () => {
@@ -268,9 +279,7 @@ function ensureMainFilters() {
 }
 
 function deckTile(deck) {
-    const cover = deck.coverCard;
-
-    return `<button class="deck-card" data-deck="${deck.id}"><div class="deck-art art-${deck.format} ${cover ? "has-cover" : ""}">${cover ? CardImageUI.art(cover) : `<span>${symbols[deck.format] || "✧"}</span>`}</div><div class="deck-info"><span class="badge">${formats[deck.format]}</span><h3>${escapeHtml(deck.name)}</h3><div class="deck-bottom"><span>${cover ? "Carta em destaque" : "Estratégia em construção"}</span><b>Abrir deck ↗</b></div></div></button>`;
+    return ArcaneUI.tile(deck);
 }
 
 function render() {
@@ -930,6 +939,8 @@ function openListImport(deckId) {
 
     textarea.focus();
 }
+
+ArcaneUI.init();
 
 if (state.token) {
     enter().catch((error) => {

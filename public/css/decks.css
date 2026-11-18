@@ -1,4 +1,4 @@
-.deck-back {
+﻿.deck-back {
     margin-bottom: 22px;
 }
 
@@ -224,7 +224,7 @@
 .commander-selected {
     border: 1px solid #778b48;
     border-radius: 6px;
-    background: #354724;
+    background: var(--panel-raised);
     color: var(--green);
 }
 
@@ -343,4 +343,464 @@
     .deck-page .page-heading p {
         font-size: 11px;
     }
+}
+
+.deck-page > .deck-showcase {
+    display: none;
+}
+.deck-page .page-heading {
+    margin-bottom: 24px;
+}
+.deck-page-actions {
+    gap: 7px;
+}
+.deck-page-actions button {
+    font-size: 10px;
+    padding: 10px 12px;
+}
+.deck-command-center {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.85fr) minmax(300px, 2fr) minmax(190px, 0.75fr);
+    gap: 12px;
+    align-items: stretch;
+}
+.deck-command-center .arcane-panel {
+    padding: 15px;
+}
+.panel-eyebrow {
+    font-size: 8px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    margin-bottom: 13px;
+}
+.commander-preview {
+    border-color: color-mix(in srgb, var(--deck-accent, var(--primary)) 40%, var(--line));
+}
+#command-preview-image .card-thumbnail {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 244 / 340;
+    box-shadow: 0 0 22px #0008;
+}
+#command-preview-image img {
+    width: 100%;
+    height: 100%;
+}
+.commander-preview p {
+    font-size: 11px;
+    margin: 11px 0 6px;
+    line-height: 1.6;
+}
+.commander-preview > small {
+    color: var(--muted);
+    font-size: 9px;
+}
+.decklist-panel .section-heading {
+    gap: 10px;
+}
+.decklist-panel .section-heading h2 {
+    font-size: 16px;
+}
+.decklist-panel h2 span {
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: 12px;
+}
+.compact-deck-scroll {
+    overflow: auto;
+    max-height: 365px;
+    scrollbar-width: thin;
+    scrollbar-color: #5b5370 transparent;
+}
+.compact-deck-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+}
+.compact-deck-table th {
+    position: sticky;
+    top: 0;
+    background: #1f2232;
+    color: #c6c0d7;
+    text-align: left;
+    padding: 9px 7px;
+    white-space: nowrap;
+    font-weight: 500;
+    z-index: 1;
+}
+.compact-deck-table td {
+    padding: 7px;
+    border-bottom: 1px solid #2b304299;
+}
+.compact-deck-table td:first-child {
+    text-align: center;
+    color: var(--muted);
+    width: 35px;
+}
+.compact-deck-table td:nth-child(3) {
+    white-space: nowrap;
+    color: #cbb7e8;
+    font-size: 9px;
+}
+.compact-deck-table td:last-child {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--muted);
+    font-size: 9px;
+}
+.compact-deck-table button {
+    background: none;
+    text-align: left;
+    padding: 0;
+    font-size: 10px;
+    line-height: 1.6;
+    color: var(--text);
+}
+.compact-deck-table tr:hover {
+    background: #8b5cf612;
+}
+.command-star {
+    color: var(--gold);
+}
+.deck-glance h2 {
+    font-size: 15px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+}
+.deck-glance dl {
+    margin: 10px 0 18px;
+}
+.deck-glance dl > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid var(--line);
+    padding: 9px 0;
+    font-size: 10px;
+}
+.deck-glance dt {
+    color: var(--muted);
+}
+.deck-glance dd {
+    margin: 0;
+}
+.deck-glance h3 {
+    font-size: 12px;
+    margin: 20px 0 12px;
+}
+.mini-mana-curve {
+    display: flex;
+    gap: 6px;
+    height: 120px;
+    align-items: end;
+}
+.mini-mana-curve > div {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    gap: 5px;
+}
+.mini-mana-curve strong {
+    font-size: 8px;
+    color: var(--muted);
+    font-weight: 400;
+}
+.mini-mana-curve span {
+    display: block;
+    width: 100%;
+    max-width: 23px;
+    min-height: 2px;
+    height: calc(var(--bar-height) * 0.7);
+    background: linear-gradient(0deg, #653ba1, #c084fc);
+    border: 1px solid #c3a1e650;
+    border-radius: 3px 3px 0 0;
+}
+.mini-mana-curve small {
+    font-size: 9px;
+    color: var(--muted);
+}
+.deck-glance .detail-caption {
+    font-size: 9px;
+    line-height: 1.8;
+}
+.deck-ownership-strip {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 14px 0 20px;
+    padding: 13px 16px;
+    border: 1px solid #66517a;
+    border-radius: var(--radius);
+    background: linear-gradient(90deg, #291b3c70, #151823);
+    font-size: 11px;
+}
+.deck-ownership-strip strong {
+    color: var(--success);
+    white-space: nowrap;
+    font-weight: 500;
+}
+.deck-ownership-strip strong small {
+    color: var(--muted);
+    font-size: 10px;
+}
+.deck-ownership-strip progress {
+    flex: 1;
+    min-width: 80px;
+    max-width: 400px;
+}
+.deck-ownership-strip > .status-missing,
+.deck-ownership-strip > .status-owned {
+    margin-left: auto;
+    white-space: nowrap;
+}
+.deck-ownership-strip button {
+    font-size: 10px;
+    white-space: nowrap;
+}
+.commander-overview {
+    padding: 16px 20px;
+    margin: 18px 0;
+    background: linear-gradient(110deg, #30213c55, #151924);
+    border-color: #6b517b;
+    border-radius: var(--radius);
+}
+.commander-overview h2 {
+    font-size: 17px;
+    margin: 8px 0;
+}
+.commander-overview p {
+    font-size: 10px;
+}
+.commander-counter {
+    color: var(--gold);
+    background: #c9a86a12;
+    border-color: #c9a86a40;
+}
+.deck-statistics {
+    background: var(--bg-secondary);
+    padding: 18px;
+    border-radius: var(--radius);
+    margin: 20px 0;
+}
+.deck-statistics > summary {
+    font: 500 16px var(--font-heading);
+}
+.deck-card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 14px;
+}
+.deck-card-entry {
+    border-radius: 6px;
+}
+.deck-quantity-badge {
+    font-size: 12px;
+    padding: 5px 9px;
+    background: #12131ef0;
+    border-color: #9973c3;
+}
+.commander-badge {
+    color: #21142d;
+    background: #dcc4f3;
+    font-size: 8px;
+    padding: 5px 7px;
+}
+.commander-entry {
+    border-color: #a483c4;
+}
+.commanders-category .category-heading h2 {
+    color: var(--gold);
+}
+.deck-detailed-list .deck-card-entry {
+    background: linear-gradient(100deg, #191d2b, #121621);
+}
+.deck-entry-description h3 {
+    font-family: var(--font-body);
+}
+@media (max-width: 1200px) {
+    .deck-command-center {
+        grid-template-columns: minmax(170px, 0.7fr) minmax(0, 1.5fr);
+    }
+    .deck-glance {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 30px;
+    }
+    .deck-glance dl {
+        grid-row: span 3;
+    }
+    .deck-glance .mini-mana-curve {
+        height: 95px;
+    }
+    .deck-glance > h2 {
+        grid-column: 1 / -1;
+    }
+    .deck-ownership-strip {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .deck-ownership-strip progress {
+        flex-basis: 100px;
+    }
+    .deck-page .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .deck-page-actions {
+        justify-content: flex-start;
+    }
+}
+@media (max-width: 720px) {
+    .deck-command-center {
+        grid-template-columns: minmax(130px, 0.65fr) minmax(0, 1.4fr);
+        gap: 9px;
+    }
+    .deck-command-center .arcane-panel {
+        padding: 12px;
+    }
+    .compact-deck-table th:last-child,
+    .compact-deck-table td:last-child {
+        display: none;
+    }
+    .compact-deck-table button {
+        font-size: 10px;
+    }
+    .compact-deck-table th {
+        font-size: 9px;
+    }
+    .compact-deck-scroll {
+        max-height: 260px;
+    }
+    .commander-preview > small {
+        display: none;
+    }
+    .commander-preview p {
+        font-size: 9px;
+    }
+    .decklist-panel .section-heading {
+        flex-wrap: wrap;
+    }
+    .decklist-panel .section-heading h2 {
+        font-size: 13px;
+    }
+    .deck-ownership-strip {
+        font-size: 10px;
+        padding: 13px;
+    }
+    .deck-ownership-strip strong small {
+        font-size: 9px;
+    }
+    .deck-display-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .deck-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+    .deck-entry-description {
+        padding: 12px;
+    }
+    .deck-entry-description h3 {
+        font-size: 13px;
+    }
+    .deck-detailed-list .deck-card-entry {
+        flex-wrap: wrap;
+    }
+    .deck-detailed-list .deck-entry-description {
+        min-width: 150px;
+    }
+    .commander-overview {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .commander-counter {
+        margin-left: 0;
+    }
+    .deck-page-actions button {
+        padding: 9px 11px;
+        font-size: 10px;
+    }
+}
+@media (max-width: 430px) {
+    .deck-command-center {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .commander-preview {
+        display: grid;
+        grid-template-columns: 105px 1fr;
+        gap: 5px 12px;
+        align-items: center;
+    }
+    .commander-preview .panel-eyebrow {
+        grid-column: 1 / -1;
+        margin-bottom: 8px;
+    }
+    .commander-preview p {
+        font-size: 12px;
+    }
+    .deck-glance {
+        display: block;
+    }
+    .compact-deck-scroll {
+        max-height: 280px;
+    }
+}
+.deck-page .deck-back {
+    margin-bottom: 12px;
+    font-size: 11px;
+}
+.deck-page h1 {
+    font-size: clamp(23px, 2vw, 32px);
+}
+#command-preview-image {
+    display: flex;
+    justify-content: center;
+}
+#command-preview-image .card-thumbnail {
+    max-width: 230px;
+    flex: 0 1 230px;
+}
+.compact-deck-table,
+.compact-deck-table button {
+    font-size: 12px;
+}
+.compact-deck-table th,
+.compact-deck-table td:last-child {
+    font-size: 10px;
+}
+.compact-deck-scroll {
+    max-height: 330px;
+}
+.commander-preview {
+    text-align: center;
+}
+@media (max-width: 720px) {
+    .compact-deck-table,
+    .compact-deck-table button {
+        font-size: 10px;
+    }
+    .compact-deck-scroll {
+        max-height: 250px;
+    }
+}
+.compact-list-search {
+    margin-bottom: 10px;
+}
+.compact-list-search input {
+    font-size: 11px;
+    padding: 9px 11px;
+}
+.compact-deck-table .compact-group-heading th {
+    position: static;
+    background: #8b5cf60c;
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    padding: 10px 7px 7px;
 }

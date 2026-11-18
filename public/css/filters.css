@@ -1,7 +1,7 @@
-.advanced-filters {
+﻿.advanced-filters {
     border: 1px solid var(--line);
     border-radius: 9px;
-    background: #171d18;
+    background: var(--bg-secondary);
     margin: 18px 0;
     padding: 16px;
 }

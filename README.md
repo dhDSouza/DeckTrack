@@ -68,6 +68,7 @@ Para atualizar, repita `catalog:update` e `images:update` e reinicie a aplicaç�
 | `npm run build`          | Compila TypeScript em `dist/`                          |
 | `npm start`              | Executa `dist/server.js` após a compilação             |
 | `npm test`               | Compila e executa testes automatizados                 |
+| `npm run lint`           | Verifica o JavaScript do frontend com ESLint           |
 | `npm run catalog:update` | Gera ou atualiza o catálogo local                      |
 | `npm run images:update`  | Gera ou atualiza o índice de imagens                   |
 
@@ -86,6 +87,8 @@ Execute `POST /auth/login`, copie o campo `token` e clique em **Authorize**, inf
 Os corpos e filtros são derivados dos validadores Zod em `src/controllers/schemas.ts`. Rotas, respostas e regras adicionais ficam em `src/openapi.ts`. Ao alterar a API, atualize essa documentação; os testes conferem a cobertura das rotas e as referências dos schemas.
 
 ## Estrutura
+
+O layout, as fontes dos indicadores e os limites da nova interface estão descritos em [docs/FRONTEND.md](docs/FRONTEND.md).
 
 ```text
 public/             Interface e módulos JavaScript
