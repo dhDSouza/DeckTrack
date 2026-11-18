@@ -26,7 +26,7 @@ Consulte a [documentação da API](https://scryfall.com/docs/api) e as [orienta�
 
 ## Fontes tipográficas
 
-A interface solicita fontes pelo Google Fonts e possui alternativas locais. As famílias e seus endereços constam em `public/css/base.css`; elas continuam sob as licenças de seus autores. Nenhum arquivo de fonte é redistribuído neste repositório.
+A interface solicita Cinzel e Inter pelo Google Fonts e possui alternativas locais. As famílias e seus endereços constam em `public/css/base.css`; elas continuam sob as licenças de seus autores. Nenhum arquivo de fonte é redistribuído neste repositório. O símbolo arcano em `public/arcane-mark.svg` é uma ilustração vetorial original do projeto, sem usar o logotipo de Magic ou da Wizards.
 
 ## Publicação
 
