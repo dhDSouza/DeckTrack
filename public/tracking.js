@@ -43,7 +43,13 @@ window.TrackingUI = (() => {
         $(".content").hidden = false;
     }
 
-    function show() {
+    function show(initialScope) {
+        if (initialScope) {
+            scope = initialScope;
+            query = "";
+            page = 1;
+        }
+        window.ArcaneUI?.leave();
         $(".content").hidden = true;
 
         let root = $("#tracking-page");

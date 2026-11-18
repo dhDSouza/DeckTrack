@@ -1,4 +1,4 @@
-.pagination {
+﻿.pagination {
     grid-column: 1/-1;
     display: flex;
     align-items: center;
@@ -15,8 +15,8 @@
 textarea {
     font: inherit;
     color: var(--text);
-    background: #111612;
-    border: 1px solid #354036;
+    background: var(--bg-secondary);
+    border: 1px solid var(--line);
     border-radius: 8px;
     padding: 12px;
     width: 100%;
@@ -35,8 +35,8 @@ textarea:focus {
     gap: 20px;
     align-items: center;
     justify-content: space-between;
-    background: #25311f;
-    border: 1px solid #425335;
+    background: var(--panel-raised);
+    border: 1px solid var(--line);
     border-radius: 9px;
     padding: 18px;
     margin: 22px 0;
@@ -130,8 +130,8 @@ textarea:focus {
     align-items: flex-start;
     gap: 12px;
     padding: 15px;
-    background: #25311f;
-    border: 1px solid #425335;
+    background: var(--panel-raised);
+    border: 1px solid var(--line);
     border-radius: 8px;
     line-height: 1.6;
     cursor: pointer;

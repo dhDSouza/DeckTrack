@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta name="theme-color" content="#101411" />
+        <meta name="theme-color" content="#0B0D14" />
         <title>DeckTrack · Sua próxima jogada</title>
         <link rel="stylesheet" href="/styles.css" />
         <script src="/card-filters.js" defer></script>
@@ -11,6 +11,7 @@
         <script src="/tracking.js" defer></script>
         <script src="/deck-page.js" defer></script>
         <script src="/deck-stats.js" defer></script>
+        <script src="/arcane-ui.js" defer></script>
         <script src="/app.js" defer></script>
     </head>
     <body>
@@ -79,6 +80,9 @@
                 >
                 <span class="nav-caption">SEU ESPAÇO DE JOGO</span>
                 <nav aria-label="Principal">
+                    <button data-page="dashboard" class="nav-item" title="Visão geral">
+                        ✧ <span>Visão geral</span>
+                    </button>
                     <button data-page="decks" class="nav-item active">
                         ▦
                         <span>Meus decks</span>
@@ -91,7 +95,22 @@
                         ⌕
                         <span>Catálogo de cartas</span>
                     </button>
+                    <button data-page="pool" class="nav-item" title="Pool de cartas">
+                        ◇ <span>Pool de cartas</span>
+                    </button>
+                    <button data-page="analytics" class="nav-item" title="Estatísticas">
+                        ▥ <span>Estatísticas</span>
+                    </button>
                 </nav>
+                <div class="sidebar-library">
+                    <div class="sidebar-section-title">
+                        <span>MEUS GRIMÓRIOS</span
+                        ><button class="icon-button" id="sidebar-create" title="Criar deck" aria-label="Criar deck">
+                            +
+                        </button>
+                    </div>
+                    <div id="sidebar-decks"></div>
+                </div>
                 <div class="sidebar-note">
                     <span>✧</span>
                     <strong>A próxima ideia começa<br />com uma carta.</strong>
@@ -108,8 +127,46 @@
             </aside>
             <main>
                 <header class="topbar">
-                    <span>Seu jogo, organizado.</span>
-                    <span class="topbar-tag">COLECIONE. CONSTRUA. JOGUE.</span>
+                    <a class="brand topbar-brand" href="#" aria-label="DeckTrack — visão geral"
+                        ><img src="/arcane-mark.svg" width="32" height="40" alt="" /><span>DeckTrack</span></a
+                    >
+                    <div class="header-navigation" aria-label="Atalhos">
+                        <button class="header-tab" data-page="decks">▱ <span>Decks</span></button
+                        ><button class="header-tab" data-page="collection">▤ <span>Coleção</span></button
+                        ><button class="header-tab" data-page="analytics">▥ <span>Estatísticas</span></button>
+                    </div>
+                    <form id="global-search" role="search">
+                        <label
+                            ><span class="sr-only">Pesquisar cartas no catálogo</span
+                            ><input
+                                name="q"
+                                type="search"
+                                maxlength="200"
+                                placeholder="Buscar cartas no catálogo…"
+                                autocomplete="off" /></label
+                        ><button type="submit" class="icon-button" aria-label="Pesquisar">⌕</button><kbd>Ctrl K</kbd>
+                    </form>
+                    <div class="header-actions">
+                        <button
+                            class="icon-button"
+                            id="recent-activity"
+                            title="Atividades recentes"
+                            aria-label="Atividades recentes"
+                        >
+                            ◷</button
+                        ><button class="icon-button" id="preferences" title="Preferências" aria-label="Preferências">
+                            ⚙</button
+                        ><button
+                            class="icon-button"
+                            id="sidebar-toggle"
+                            aria-expanded="true"
+                            aria-controls="sidebar-decks"
+                            title="Recolher menu"
+                            aria-label="Recolher menu"
+                        >
+                            ☰
+                        </button>
+                    </div>
                 </header>
                 <div class="content">
                     <div class="page-heading">

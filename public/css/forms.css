@@ -1,7 +1,7 @@
-dialog {
+﻿dialog {
     width: min(640px, calc(100% - 30px));
     max-height: 85vh;
-    border: 1px solid #414d3d;
+    border: 1px solid var(--line);
     border-radius: 14px;
     background: var(--panel);
     color: var(--text);
@@ -77,9 +77,21 @@ label {
     right: 25px;
     bottom: 25px;
     padding: 16px 22px;
-    border: 1px solid #64794d;
-    background: #263321;
+    border: 1px solid #9b73c5;
+    background: #251d34;
     border-radius: 9px;
-    z-index: 10;
+    z-index: 40;
     max-width: calc(100vw - 50px);
+}
+.preferences-account {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--line);
+    margin-top: 7px;
+    padding-top: 17px;
+    font-size: 11px;
+    color: var(--muted);
 }

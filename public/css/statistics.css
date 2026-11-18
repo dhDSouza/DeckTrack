@@ -1,7 +1,7 @@
-.deck-statistics {
+﻿.deck-statistics {
     margin: 30px 0;
     padding: 24px;
-    background: #141b15;
+    background: var(--bg-secondary);
     border: 1px solid var(--line);
     border-radius: 12px;
 }
@@ -9,7 +9,7 @@
 .deck-statistics > summary {
     color: var(--green);
     font:
-        600 21px "Space Grotesk",
+        600 21px "Inter",
         sans-serif;
     cursor: pointer;
 }
@@ -65,7 +65,7 @@
 .deck-stats-metrics strong {
     display: block;
     font:
-        500 30px "Space Grotesk",
+        500 30px "Inter",
         sans-serif;
     margin: 12px 0;
 }
@@ -123,7 +123,7 @@
 
 .stats-bar-track {
     height: 8px;
-    background: #283229;
+    background: var(--line);
     border-radius: 5px;
     overflow: hidden;
 }
@@ -159,7 +159,7 @@
     height: 130px;
     width: 100%;
     max-width: 38px;
-    background: #222c24;
+    background: var(--bg-secondary);
     border-radius: 5px 5px 0 0;
     display: flex;
     align-items: flex-end;
@@ -167,7 +167,7 @@
 
 .stats-mana-track > div {
     width: 100%;
-    background: linear-gradient(0deg, #698d4a, var(--green));
+    background: linear-gradient(0deg, var(--primary), var(--green));
     border-radius: inherit;
 }
 
@@ -199,13 +199,13 @@
     align-items: center;
     justify-content: center;
     font:
-        500 28px "Space Grotesk",
+        500 28px "Inter",
         sans-serif;
 }
 
 .stats-color-donut small {
     font:
-        11px "DM Sans",
+        11px "Inter",
         sans-serif;
     color: var(--muted);
     margin-top: 7px;
@@ -253,11 +253,11 @@
 }
 
 .stats-power-suggestion {
-    border: 1px solid #526b3f;
+    border: 1px solid var(--line);
     border-radius: 9px;
     padding: 17px;
     margin: 18px 0;
-    background: #23301e;
+    background: var(--bg-secondary);
 }
 
 .stats-power-suggestion > small {
@@ -269,7 +269,7 @@
 .stats-power-suggestion > strong {
     display: block;
     font:
-        600 42px "Space Grotesk",
+        600 42px "Inter",
         sans-serif;
     color: var(--green);
     margin: 12px 0;

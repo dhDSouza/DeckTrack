@@ -1,0 +1,191 @@
+﻿.overview-hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+    padding: 32px 40px;
+    border: 1px solid #65507875;
+    border-radius: var(--radius);
+    background:
+        linear-gradient(100deg, #151521f5, #211a31cf),
+        var(--header-art, none) center / cover;
+    box-shadow: var(--shadow-panel);
+}
+.overview-hero::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 1px solid #b992e728;
+    right: 50px;
+    top: -50px;
+    pointer-events: none;
+    box-shadow:
+        0 0 0 35px #b992e705,
+        0 0 0 75px #b992e703;
+}
+.overview-hero h2 {
+    font-size: clamp(24px, 2.4vw, 38px);
+    line-height: 1.4;
+    margin: 14px 0;
+}
+.overview-hero p {
+    color: #b9b3c9;
+    font-size: 12px;
+    line-height: 1.9;
+}
+.overview-hero button {
+    margin-top: 12px;
+}
+.hero-sigil {
+    width: 240px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    gap: 18px;
+}
+.hero-sigil img {
+    width: 95px;
+    height: 120px;
+    filter: drop-shadow(0 0 30px #b473ff66);
+}
+.hero-sigil span {
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #c8addb;
+}
+.overview-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+    margin: 22px 0 30px;
+}
+.overview-metrics article {
+    position: relative;
+    padding: 20px;
+    background: linear-gradient(120deg, #1d2030, #131722);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-panel);
+}
+.overview-metrics article > span {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    color: var(--primary-light);
+    font-size: 22px;
+}
+.overview-metrics small {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+}
+.overview-metrics strong {
+    display: block;
+    font-size: 30px;
+    margin: 15px 0 9px;
+    font-weight: 500;
+}
+.overview-metrics p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.7;
+}
+.overview-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 25px;
+}
+.arcane-panel {
+    background: linear-gradient(145deg, #191c29, #10141e);
+    border: 1px solid #454054;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-panel);
+    min-width: 0;
+    padding: 20px;
+}
+.arcane-panel > .section-heading {
+    margin: 0 0 18px;
+}
+.arcane-panel h2 {
+    font-size: 16px;
+    margin: 0;
+}
+.arcane-panel .section-heading small {
+    color: var(--muted);
+    font-size: 10px;
+}
+.collection-colors {
+    display: grid;
+    gap: 17px;
+    padding: 12px 0;
+}
+.collection-color-row {
+    display: grid;
+    grid-template-columns: 92px 1fr 45px;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+}
+.collection-color-row > span {
+    color: var(--mana-color);
+}
+.collection-color-row strong {
+    text-align: right;
+    font-size: 10px;
+}
+.activity-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    text-align: left;
+    background: none;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+}
+.activity-row:last-child {
+    border: 0;
+}
+.activity-row:hover {
+    background: #ffffff04;
+}
+.activity-row .activity-icon {
+    color: var(--gold);
+    font-size: 19px;
+}
+.activity-row strong {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+}
+.activity-row small {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 5px;
+    overflow-wrap: anywhere;
+}
+.activity-row time {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 10px;
+    color: var(--muted);
+}
+.small-empty {
+    font-size: 12px;
+    line-height: 1.9;
+    color: var(--muted);
+    padding: 25px 5px;
+}
+.analytics-view .overview-hero {
+    display: none;
+}
+.analytics-view .overview-metrics {
+    margin-top: 25px;
+}
