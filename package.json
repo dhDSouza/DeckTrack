@@ -1,6 +1,6 @@
 {
     "name": "decktrack",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Gerenciador de decks e coleção física de Magic: The Gathering, com rastreamento, histórico e versões.",
     "private": true,
     "license": "MIT",

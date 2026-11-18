@@ -542,7 +542,7 @@ export const openapi = {
     openapi: "3.1.0",
     info: {
         title: "DeckTrack API",
-        version: "1.0.0",
+        version: "1.1.0",
         description:
             "API de decks e coleção física. Faça login, copie token e use Authorize com o JWT (sem o prefixo Bearer). Try it out executa operações reais, inclusive alterações e exclusões. Os UUIDs dos exemplos são ilustrativos. Regras adicionais entre campos são validadas pelo servidor. DeckTrack é um projeto de fãs não oficial; os direitos sobre Magic pertencem aos respectivos titulares.",
         license: { name: "MIT — somente código original", url: "https://opensource.org/license/mit/" }
