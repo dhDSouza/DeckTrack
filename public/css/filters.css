@@ -1,0 +1,194 @@
+.advanced-filters {
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: #171d18;
+    margin: 18px 0;
+    padding: 16px;
+}
+
+.advanced-filters > summary {
+    cursor: pointer;
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.advanced-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+    margin-top: 22px;
+}
+
+.advanced-grid input,
+.advanced-grid select {
+    font-size: 12px;
+}
+
+.color-filter {
+    grid-column: 1/-1;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.color-filter legend {
+    font-size: 12px;
+    color: #c3cdc1;
+    margin-bottom: 12px;
+}
+
+.color-filter > div {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.color-filter label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.color-filter input {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--green);
+}
+
+.color-dot {
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+    color: #161b16;
+    background: #b6bcb5;
+}
+
+.color-W {
+    background: #eee1ac;
+}
+
+.color-U {
+    background: #8dc1dc;
+}
+
+.color-B {
+    background: #b1a2c1;
+}
+
+.color-R {
+    background: #e99c81;
+}
+
+.color-G {
+    background: #90bb86;
+}
+
+.filter-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.filter-count {
+    font-size: 10px;
+    font-weight: 400;
+    margin-left: 8px;
+}
+
+.card-description {
+    flex: 1;
+    min-width: 0;
+}
+
+.card-meta {
+    display: block;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.card-row {
+    align-items: flex-start;
+}
+
+.card-details {
+    margin-top: 13px;
+    font-size: 12px;
+    max-width: 100%;
+}
+
+.card-details > summary {
+    cursor: pointer;
+    color: var(--green);
+    font-size: 11px;
+}
+
+.card-details > div {
+    margin-top: 12px;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.card-details section + section {
+    border-top: 1px solid var(--line);
+    padding-top: 15px;
+    margin-top: 18px;
+}
+
+.rules-text {
+    white-space: pre-wrap;
+    color: #d2dace;
+    line-height: 1.8;
+}
+
+.card-details p {
+    font-size: 12px;
+}
+
+.card-details .detail-caption {
+    font-size: 11px;
+}
+
+dialog .advanced-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+dialog .advanced-filters {
+    padding: 13px;
+}
+
+#deck-filter-pages {
+    margin-bottom: 25px;
+}
+
+#deck-filter-pages button {
+    min-width: 40px;
+}
+
+@media (max-width: 1000px) {
+    .advanced-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .advanced-grid,
+    dialog .advanced-grid {
+        grid-template-columns: 1fr;
+    }
+    .color-filter > div {
+        gap: 12px;
+    }
+    .filter-actions {
+        flex-wrap: wrap;
+    }
+    .card-row > .secondary {
+        font-size: 11px;
+    }
+}

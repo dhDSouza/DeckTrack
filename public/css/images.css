@@ -1,0 +1,190 @@
+.card-thumbnail {
+    padding: 0;
+    background: #20291f;
+    flex: 0 0 74px;
+    width: 74px;
+    height: 104px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #394532;
+}
+
+.card-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.card-thumbnail:hover {
+    border-color: var(--green);
+}
+
+.deck-art.has-cover:before,
+.deck-art.has-cover:after {
+    display: none;
+}
+
+.cover-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.72);
+}
+
+.cover-full-card {
+    position: absolute;
+    right: 15px;
+    bottom: 12px;
+    width: 61px;
+    height: 85px;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px #0009;
+}
+
+.deck-art .cover-caption {
+    position: absolute;
+    left: 14px;
+    bottom: 15px;
+    right: 85px;
+    font-size: 11px;
+    line-height: 1.5;
+    color: white;
+    text-shadow: 0 1px 5px #000;
+    z-index: 1;
+}
+
+.deck-showcase {
+    position: relative;
+    overflow: hidden;
+    min-height: 185px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 24px;
+    background: #24301f;
+}
+
+.deck-showcase:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #101a10ed, #101a1050);
+}
+
+.showcase-text,
+.deck-showcase .card-thumbnail {
+    position: relative;
+    z-index: 1;
+}
+
+.showcase-text h3 {
+    font-size: 25px;
+    margin: 15px 0;
+    line-height: 1.3;
+}
+
+.showcase-text small {
+    font-size: 9px;
+    color: #c7d3bf;
+}
+
+.deck-showcase .card-thumbnail {
+    flex-basis: 85px;
+    width: 85px;
+    height: 119px;
+}
+
+.image-viewer {
+    width: min(600px, calc(100% - 25px));
+    max-height: 95vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.image-viewer-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.image-viewer h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.large-card-image {
+    display: block;
+    max-width: 100%;
+    max-height: 65vh;
+    min-height: 180px;
+    width: auto;
+    margin: 18px auto;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+.image-viewer-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.image-viewer .image-credit {
+    font-size: 10px;
+}
+
+.image-attribution {
+    color: var(--muted);
+    font-size: 9px;
+}
+
+footer {
+    flex-wrap: wrap;
+}
+
+.image-unavailable {
+    object-fit: contain;
+}
+
+.cover-art.image-unavailable {
+    opacity: 0.2;
+}
+
+.card-row .card-description {
+    min-width: 100px;
+}
+
+@media (max-width: 720px) {
+    .card-thumbnail {
+        flex-basis: 58px;
+        width: 58px;
+        height: 81px;
+    }
+    .card-row .card-description {
+        flex-basis: calc(100% - 85px);
+    }
+    .card-row > .secondary {
+        margin-left: auto;
+    }
+    .deck-showcase {
+        padding: 17px;
+        min-height: 165px;
+    }
+    .showcase-text h3 {
+        font-size: 21px;
+    }
+    .image-attribution {
+        display: block !important;
+    }
+}

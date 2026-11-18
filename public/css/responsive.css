@@ -1,0 +1,185 @@
+@media (min-width: 1500px) {
+    .deck-art {
+        height: 190px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .items {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .sidebar {
+        width: 215px;
+        padding: 30px 15px;
+    }
+    main {
+        margin-left: 215px;
+    }
+    #workspace:not([hidden]) ~ .legal-notice {
+        margin-left: 215px;
+    }
+    .content {
+        padding: 32px 25px;
+    }
+    .topbar {
+        padding: 0 25px;
+    }
+    .toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .search {
+        width: 100%;
+    }
+    .stats {
+        gap: 10px;
+    }
+    .stats article {
+        padding: 16px;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 720px) {
+    .sidebar {
+        position: static;
+        width: auto;
+        padding: 18px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+    .brand {
+        font-size: 23px;
+    }
+    .nav-caption,
+    .sidebar-note,
+    .profile,
+    .topbar {
+        display: none;
+    }
+    nav {
+        display: flex;
+        margin-top: 18px;
+        gap: 4px;
+    }
+    .nav-item {
+        padding: 10px;
+        gap: 7px;
+        flex: 1;
+        justify-content: center;
+    }
+    .nav-item span {
+        font-size: 11px;
+    }
+    main {
+        margin-left: 0;
+    }
+    #workspace:not([hidden]) ~ .legal-notice {
+        margin-left: 0;
+    }
+    .content {
+        padding: 28px 18px;
+    }
+    .page-heading {
+        align-items: flex-start;
+    }
+    .page-heading .primary {
+        padding: 11px;
+        font-size: 12px;
+        margin-top: 29px;
+    }
+    h1 {
+        font-size: 33px;
+    }
+    .eyebrow {
+        font-size: 8px;
+        letter-spacing: 1.3px;
+    }
+    .page-heading p {
+        font-size: 12px;
+    }
+    .stats {
+        gap: 8px;
+        margin: 25px 0;
+    }
+    .stats article {
+        padding: 13px 10px;
+    }
+    .stats article > span {
+        display: none;
+    }
+    .stats small {
+        font-size: 9px;
+    }
+    .stats strong {
+        font-size: 23px;
+    }
+    .items {
+        gap: 12px;
+    }
+    .deck-art {
+        height: 120px;
+    }
+    .deck-info {
+        padding: 14px;
+    }
+    .deck-info h3 {
+        font-size: 16px;
+    }
+    .filters button {
+        padding: 8px 9px;
+        font-size: 11px;
+    }
+    footer span {
+        display: none;
+    }
+    .auth-layout {
+        grid-template-columns: 1fr;
+    }
+    .auth-story {
+        padding: 26px;
+    }
+    .auth-story > div,
+    .auth-story > small {
+        display: none;
+    }
+    .auth-panel {
+        padding: 45px 25px;
+    }
+    .card-row {
+        flex-wrap: wrap;
+    }
+    .quantity {
+        gap: 8px;
+    }
+    .quantity input {
+        width: 70px;
+    }
+    .section-heading h2 {
+        font-size: 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+@media (max-width: 720px) {
+    .profile {
+        display: flex;
+        margin-top: 14px;
+        padding-top: 12px;
+    }
+    .profile .avatar {
+        padding: 8px;
+    }
+    .profile small {
+        display: none;
+    }
+    .profile strong {
+        max-width: 220px;
+        font-size: 12px;
+    }
+}

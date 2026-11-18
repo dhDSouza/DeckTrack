@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="theme-color" content="#101411" />
+        <title>DeckTrack · Sua próxima jogada</title>
+        <link rel="stylesheet" href="/styles.css" />
+        <script src="/card-filters.js" defer></script>
+        <script src="/card-images.js" defer></script>
+        <script src="/tracking.js" defer></script>
+        <script src="/deck-page.js" defer></script>
+        <script src="/deck-stats.js" defer></script>
+        <script src="/app.js" defer></script>
+    </head>
+    <body>
+        <div id="auth" class="auth-layout" hidden>
+            <section class="auth-story">
+                <a class="brand" href="/"
+                    >▧ <span>DeckTrack<span class="brand-dot">.</span></span></a
+                >
+                <div>
+                    <span class="eyebrow">CADA CARTA CONTA</span>
+                    <h1>Sua coleção.<br />Seu próximo<br /><em>grande deck.</em></h1>
+                    <p>
+                        Organize suas cartas, construa novas estratégias e mantenha tudo pronto para a próxima partida.
+                    </p>
+                    <div class="card-fan" aria-hidden="true">
+                        <div>✧</div>
+                        <div>◈</div>
+                        <div>✦</div>
+                    </div>
+                </div>
+                <small>Um lugar para todas as suas estratégias.</small>
+            </section>
+            <section class="auth-panel">
+                <form id="auth-form">
+                    <span class="eyebrow">BEM-VINDO AO DECKTRACK</span>
+                    <h2 id="auth-title">De volta ao jogo.</h2>
+                    <p id="auth-subtitle">Entre para continuar sua próxima estratégia.</p>
+                    <label id="username-label" hidden>
+                        Nome de jogador
+                        <input name="username" autocomplete="nickname" minlength="3" maxlength="25" />
+                    </label>
+                    <label>
+                        E-mail
+                        <input
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            required
+                            maxlength="100"
+                            placeholder="voce@exemplo.com"
+                        />
+                    </label>
+                    <label>
+                        Senha
+                        <input
+                            name="password"
+                            type="password"
+                            autocomplete="current-password"
+                            required
+                            placeholder="Sua senha"
+                        />
+                    </label>
+                    <p id="auth-error" class="error" role="alert"></p>
+                    <button class="primary wide" type="submit" id="auth-submit">Entrar →</button>
+                    <p class="auth-switch">
+                        <span id="auth-prompt">Ainda não tem uma conta?</span>
+                        <button type="button" class="text-button" id="auth-toggle">Crie sua conta</button>
+                    </p>
+                </form>
+            </section>
+        </div>
+        <div id="workspace" hidden>
+            <aside class="sidebar">
+                <a class="brand" href="/"
+                    >▧ <span>DeckTrack<span class="brand-dot">.</span></span></a
+                >
+                <span class="nav-caption">SEU ESPAÇO DE JOGO</span>
+                <nav aria-label="Principal">
+                    <button data-page="decks" class="nav-item active">
+                        ▦
+                        <span>Meus decks</span>
+                    </button>
+                    <button data-page="collection" class="nav-item">
+                        ▤
+                        <span>Minha coleção</span>
+                    </button>
+                    <button data-page="catalog" class="nav-item">
+                        ⌕
+                        <span>Catálogo de cartas</span>
+                    </button>
+                </nav>
+                <div class="sidebar-note">
+                    <span>✧</span>
+                    <strong>A próxima ideia começa<br />com uma carta.</strong>
+                    <p>Explore sua coleção e encontre novas possibilidades.</p>
+                </div>
+                <div class="profile">
+                    <span id="avatar" class="avatar"></span>
+                    <div>
+                        <strong id="player-name"></strong>
+                        <small>Planeswalker</small>
+                    </div>
+                    <button id="logout" title="Sair da conta" aria-label="Sair da conta">↪</button>
+                </div>
+            </aside>
+            <main>
+                <header class="topbar">
+                    <span>Seu jogo, organizado.</span>
+                    <span class="topbar-tag">COLECIONE. CONSTRUA. JOGUE.</span>
+                </header>
+                <div class="content">
+                    <div class="page-heading">
+                        <div>
+                            <span class="eyebrow">SUA PRÓXIMA JOGADA COMEÇA AQUI</span>
+                            <h1 id="page-title">Meus decks<span>.</span></h1>
+                            <p id="page-description">Ideias na mesa. Estratégias em construção.</p>
+                        </div>
+                        <button id="create" class="primary">+ Novo deck</button>
+                    </div>
+                    <section class="stats" aria-label="Resumo">
+                        <article>
+                            <span>▦</span>
+                            <div>
+                                <small>Decks construídos</small>
+                                <strong id="stat-decks">—</strong>
+                            </div>
+                        </article>
+                        <article>
+                            <span>▤</span>
+                            <div>
+                                <small>Cartas na coleção</small>
+                                <strong id="stat-owned">—</strong>
+                            </div>
+                        </article>
+                        <article>
+                            <span>◈</span>
+                            <div>
+                                <small>Cartas diferentes</small>
+                                <strong id="stat-unique">—</strong>
+                            </div>
+                        </article>
+                    </section>
+                    <section class="library">
+                        <div class="toolbar">
+                            <div id="filters" class="filters" aria-label="Filtrar formato">
+                                <button class="selected" data-format="all">Todos</button>
+                                <button data-format="commander">Commander</button>
+                                <button data-format="pauper">Pauper</button>
+                                <button data-format="standard">Standard</button>
+                                <button data-format="free">Livre</button>
+                            </div>
+                            <label class="search">
+                                <span>⌕</span>
+                                <input id="search" type="search" placeholder="Buscar decks…" aria-label="Buscar" />
+                            </label>
+                        </div>
+                        <div class="section-heading">
+                            <h2 id="list-title">Sua biblioteca de decks</h2>
+                            <span id="result-count"></span>
+                        </div>
+                        <div id="items" class="items" aria-live="polite"></div>
+                    </section>
+                    <footer>
+                        Feito para quem pensa na próxima jogada.
+                        <span>DeckTrack / Seu acervo, sua estratégia.</span>
+                    </footer>
+                </div>
+            </main>
+        </div>
+        <footer class="legal-notice">
+            DeckTrack não é oficial nem endossado pela Wizards. Cartas: © Wizards of the Coast LLC.
+            <a href="https://company.wizards.com/pt-BR/legal/fancontentpolicy" target="_blank" rel="noopener noreferrer"
+                >Política de fãs</a
+            >. Dados: <a href="https://mtgjson.com/" target="_blank" rel="noopener noreferrer">MTGJSON</a>. Imagens:
+            <a href="https://scryfall.com/" target="_blank" rel="noopener noreferrer">Scryfall</a> / artistas.
+        </footer>
+        <dialog id="modal">
+            <div class="modal-heading">
+                <h2 id="modal-title"></h2>
+                <button id="close-modal" class="icon-button" aria-label="Fechar">×</button>
+            </div>
+            <div id="modal-body"></div>
+        </dialog>
+        <div id="toast" role="status" hidden></div>
+    </body>
+</html>
