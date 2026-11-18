@@ -1,32 +1,52 @@
 {
-  "name": "decktrack",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "type": "commonjs",
-  "dependencies": {
-    "bcryptjs": "^3.0.3",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.6",
-    "dotenv": "^18.0.10",
-    "express": "^5.3.0",
-    "jsonwebtoken": "^9.0.3",
-    "pg": "^8.23.1",
-    "reflect-metadata": "^0.2.2",
-    "typeorm": "^1.1.3",
-    "zod": "^4.6.7"
-  },
-  "devDependencies": {
-    "@types/cookie-parser": "^1.4.10",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.6",
-    "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^26.6.6",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.9.3"
-  }
+    "name": "decktrack",
+    "version": "1.0.0",
+    "description": "Gerenciador de decks e coleção física de Magic: The Gathering, com rastreamento, histórico e versões.",
+    "private": true,
+    "license": "MIT",
+    "main": "dist/server.js",
+    "engines": {
+        "node": ">=24 <25"
+    },
+    "scripts": {
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "catalog:update": "node scripts/update-catalog.cjs",
+        "images:update": "node --max-old-space-size=1024 scripts/update-images.cjs",
+        "dev": "ts-node-dev --respawn src/server.ts",
+        "build": "tsc",
+        "start": "node dist/server.js",
+        "test": "npm run build && node --test tests/*.test.cjs"
+    },
+    "keywords": [
+        "magic-the-gathering",
+        "deck-builder",
+        "collection",
+        "typescript"
+    ],
+    "type": "commonjs",
+    "dependencies": {
+        "bcryptjs": "^3.0.3",
+        "cookie-parser": "^1.4.7",
+        "cors": "^2.8.6",
+        "dotenv": "^18.0.10",
+        "express": "^5.3.0",
+        "jsonwebtoken": "^9.0.3",
+        "pg": "^8.23.1",
+        "reflect-metadata": "^0.2.2",
+        "swagger-ui-express": "^5.0.1",
+        "typeorm": "^1.1.3",
+        "zod": "^4.6.7"
+    },
+    "devDependencies": {
+        "@types/cookie-parser": "^1.4.10",
+        "@types/cors": "^2.8.19",
+        "@types/express": "^5.0.6",
+        "@types/jsonwebtoken": "^9.0.10",
+        "@types/node": "^26.6.6",
+        "@types/swagger-ui-express": "^4.1.8",
+        "prettier": "3.10.1",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.9.3"
+    }
 }

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.cache/
+coverage/
+.env
+.env.*
+package-lock.json
+data/*.json
+data/*.tmp
+data/LICENSE-MTGJSON.txt
+LICENSE
+project_context.txt
