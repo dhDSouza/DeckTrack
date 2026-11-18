@@ -1,2 +1,15 @@
 node_modules/
 .env
+.env.*
+!.env.example
+dist/
+data/*.tmp
+data/catalog.json
+data/card-images.json
+.cache/
+coverage/
+*.log
+*.tsbuildinfo
+project_context.txt
+.DS_Store
+Thumbs.db
